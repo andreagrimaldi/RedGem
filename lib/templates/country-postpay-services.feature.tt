@@ -1,0 +1,32 @@
+@<%= @cc %> @postpay
+Feature: <%= @country_name %> <%= @service_name %> service
+ In order to pay postpay services
+ STAMP User will need to create, authorize and pay a postpay account
+
+    @carriers
+  Scenario: Anonymous user request <%= @country_name %> <%= @service_name %> carriers
+    Given an anonymous user
+    When I request <%= @country_name %> <%= @service_name %> carriers
+    Then I should see a successful <%= @country_name %> <%= @service_name %> carrier response
+
+  Scenario: Anonymous user creates an account
+    Given an anonymous user
+    When I create an account for <%= @country_name %> <%= @service_name %> service
+    Then I see an 'accepted' create response
+    And I wait for create action to complete
+    And I see a ready <%= @country_name %> <%= @service_name %> account
+
+  Scenario: Authenticated user creates, authorizes and pays an account
+    Given that I authenticate with scope 'make-authorizations'
+    When I create an account for <%= @country_name %> <%= @service_name %> service
+    Then I see an 'accepted' create response
+    And I wait for create action to complete
+    And I see a ready <%= @country_name %> <%= @service_name %> account
+    When I authorize to pay balance due
+    And I wait for authorization action to complete
+    And I see an authorized <%= @country_name %> <%= @service_name %> account for balance due
+    And that I authenticate with scope 'pay-on-users-behalf' and 'client_credentials' grant type
+    When I pay the account's <%= @country_name %> <%= @service_name %> balance due
+    Then I see an 'accepted' payment response
+    And I wait for payment action to complete
+    And I see a processed <%= @country_name %> <%= @service_name %> account for balance due

@@ -1,0 +1,43 @@
+@<%= @cc %> @topup
+Feature: <%= @country_name %> <%= @service_name %> Service
+  In order to pay a top up account
+  STAMP User will need to create, authorize and pay a top up account
+
+  @carriers
+  Scenario: Anonymous user request <%= @country_name %> <%= @service_name %> carriers
+    Given an anonymous user
+    When I request <%= @country_name %> <%= @service_name %> carriers
+    Then I should see a successful <%= @country_name %> <%= @service_name %> carrier response
+
+  Scenario: Anonymous user creates an account
+    Given an anonymous user
+    When I create an account for <%= @country_name %> <%= @service_name %> service
+    Then I see a 'created' create response
+    And I see a ready <%= @country_name %> <%= @service_name %> account
+
+  Scenario: Authenticated user creates an authorization form
+    Given that I authenticate with scope 'make-authorizations'
+    And I create an account for <%= @country_name %> <%= @service_name %> service
+    When I create an authorization form
+    Then I see an authorization form for <%= @country_name %> <%= @service_name %> service
+
+  Scenario Outline: Authenticated user creates, authorizes and pays and account
+    Given that I authenticate with scope 'make-authorizations'
+    When I create an account for <%= @country_name %> <%= @service_name %> service
+    Then I see an 'created' create response    
+    And I see a ready <%= @country_name %> <%= @service_name %> account
+    When I authorize to pay <amount>
+    Then I see an 'accepted' authorization response
+    And I wait for authorization action to complete
+    And I see an authorized <%= @country_name %> <%= @service_name %> account for <amount>
+    And that I authenticate with scope 'pay-on-users-behalf' and 'client_credentials' grant type
+    When I pay the account' <amount> amount
+    Then I see an 'accepted' payment response
+    And I wait for payment action to complete
+    And I see a processed <%= @country_name %> <%= @service_name %> account for <amount>
+
+    Examples:
+      | amount |
+<% @amounts.each do |amount| -%>
+<%= "      | #{amount} |" %>
+<% end -%>

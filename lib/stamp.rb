@@ -1,4 +1,3 @@
-require "RedGem/version"
 require 'httparty'
 require 'stamp/account_top_up'
 require 'stamp/authorization_form'
@@ -12,7 +11,7 @@ require 'stamp/phone'
 require 'stamp/service'
 require 'stamp/account'
 
-module RedGem
+module Stamp
   
   def self.env
     ENV['STAMP_ENV'] || 'qa'
