@@ -9,13 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Andrea Grimaldi"]
   spec.email         = ["andrea.grimaldi@xoom.com"]
 
-<<<<<<< HEAD
   spec.summary       = %q{Jasper's parser}
   spec.description   = %q{Includes how the logic behing thße tests.}
-=======
-  spec.summary       = %q{Includes tests' logic}
-  spec.description   = %q{This is Jasper's Parser}
->>>>>>> 0802e1cbf2afe7935c3fd45ada8e7b7f8fa279ba
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
