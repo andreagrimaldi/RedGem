@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-require 'RedGem/version'
-require 'httparty'  
-require 'RedGem/number'
-  
-module RedGem
-  # Your code goes here...
-=======
-require "RedGem/version"
 require 'httparty'
 require 'stamp/account_top_up'
 require 'stamp/authorization_form'
@@ -20,7 +11,7 @@ require 'stamp/phone'
 require 'stamp/service'
 require 'stamp/account'
 
-module RedGem
+module Stamp
   
   def self.env
     ENV['STAMP_ENV'] || 'qa'
@@ -95,5 +86,4 @@ module RedGem
     HTTParty.get(url, options)
   end
   
->>>>>>> 0802e1cbf2afe7935c3fd45ada8e7b7f8fa279ba
 end
