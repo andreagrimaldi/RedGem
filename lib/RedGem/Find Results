@@ -1,0 +1,147 @@
+Searching 923 files for "see_account_in_state"
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/accounts_steps.rb:
+   99      params: @params
+  100    }
+  101:   see_account_in_state(args)
+  102  end
+  103  
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/authorization_steps.rb:
+   74    }
+   75  
+   76:   see_account_in_state(args)
+   77  end
+   78  
+   ..
+   88    }
+   89  
+   90:   see_account_in_state(args)
+   91  end
+   92  ##
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/payment_steps.rb:
+   35    }
+   36  
+   37:   see_account_in_state(args)
+   38  end
+   39  
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/support/matchers/accounts_matchers.rb:
+   16    end
+   17    
+   18:   def see_account_in_state(opts = {})
+   19      account = opts[:account]
+   20      country_name = opts[:country_name]
+
+5 matches across 4 files
+
+
+Searching 923 files for "have_same_fields"
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/support/matchers/accounts_matchers.rb:
+   31      
+   32      # ---------- VALIDAR ESTRUCTURA ------
+   33:     expect(account).to have_same_fields(fields)
+   34      
+   35      #----------- Datos ------------
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/support/matchers/rspec_matchers.rb:
+    7  end
+    8  
+    9: RSpec::Matchers.define :have_same_fields do |expected|
+   10    match do |actual|
+   11      a = flat_hash(actual).keys.sort
+
+2 matches across 2 files
+
+
+Searching 923 files for "see_account_in_state"
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/accounts_steps.rb:
+   99      params: @params
+  100    }
+  101:   see_account_in_state(args)
+  102  end
+  103  
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/authorization_steps.rb:
+   74    }
+   75  
+   76:   see_account_in_state(args)
+   77  end
+   78  
+   ..
+   88    }
+   89  
+   90:   see_account_in_state(args)
+   91  end
+   92  ##
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/payment_steps.rb:
+   35    }
+   36  
+   37:   see_account_in_state(args)
+   38  end
+   39  
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/support/matchers/accounts_matchers.rb:
+   16    end
+   17    
+   18:   def see_account_in_state(opts = {})
+   19      account = opts[:account]
+   20      country_name = opts[:country_name]
+
+5 matches across 4 files
+
+
+Searching 923 files for "([0-9]{1,3}("
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/support/accounts_helpers.rb:
+   66        no_numbers_regex = /^\D*$/
+   67        only_numbers_regex = /^\d*$/
+   68:       total_regex = /.*([0-9]{1,3}(,[0-9]{3})*\.[0-9]+)/
+   69        total_regex.match(@data["total"])
+   70        total_cents = Stamp::Number.to_integer($1)
+
+1 match in 1 file
+
+
+Searching 924 files for "max_tries"
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/accounts_steps.rb:
+   18    
+   19    tries = 1
+   20:   max_tries = 5
+   21    resource_ready = false
+   22    resource = nil
+   ..
+   53      end
+   54  
+   55:     if tries > max_tries
+   56        pp resource
+   57:       raise "#{action} is taking more than #{max_tries} seconds"
+   58      end
+   59      
+
+3 matches in 1 file
+
+
+Searching 924 files for "max_tries"
+
+/Users/agrimaldi/Desktop/jasper/xbp_stamp_jasper/features/step_definitions/accounts_steps.rb:
+   18    
+   19    tries = 1
+   20:   max_tries = 20
+   21    resource_ready = false
+   22    resource = nil
+   ..
+   53      end
+   54  
+   55:     if tries > max_tries
+   56        pp resource
+   57:       raise "#{action} is taking more than #{max_tries} seconds"
+   58      end
+   59      
+
+3 matches in 1 file
